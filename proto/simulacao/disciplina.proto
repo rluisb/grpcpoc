@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package com.github.rluisb.grpc;
+
+import "google/protobuf/timestamp.proto";
+
+option java_package = "com.github.rluisb.grpc";
+option java_multiple_files = true;
+option java_outer_classname = "DisciplinaSimulacao";
+
+message Disciplina {
+    string nome = 1;
+    string siglaCodicred = 2;
+    int64 codigoNivelEnsino = 3;
+    string nomeNivelEnsino = 4;
+    int64 codigoDepartamento = 5;
+    int32 quantidadeCreditoTeorico = 6;
+    int32 quantidadeCreditoPratico = 7;
+    int32 quantidadeCargaHoraria = 8;
+    google.protobuf.Timestamp dataInicio = 9;
+    google.protobuf.Timestamp dataTermino = 10;
+    string nomePorExtenso = 11;
+    int64 codigoTipoCredito = 12;
+    string situacaoContaCredito = 13;
+    int32 quantidadeCargaHorariaTeorica = 14;
+    int32 quantidadeCargaHorariaPratica = 15;
+    google.protobuf.Timestamp dataInclusao = 16;
+    string nuoperador = 17;
+    string situacaoMultiploIdioma = 18;
+    bool pertenceAPrimeiroNivel = 19;
+    bool possuiGradeCurricularAtiva = 20;
+    bool possuiDisciplinaSubstituta = 21;
+    bool possuiRestricoesDisciplinaEletiva = 22;
+    bool disciplinaNova = 23;
+    int32 totalDeAptos = 24;
+    repeated com.github.rluisb.grpc.Disciplina disciplinasSubstituidas = 25;
+    repeated com.github.rluisb.grpc.PeriodoOferecimento periodosOferecimento = 26;
+    repeated com.github.rluisb.grpc.Turno turnos = 27;
+}
+
+message PeriodoOferecimento {
+    int64 codigoCurriculo = 1;
+    int64 codigoNivel = 2;
+    int64 codigoSemestreFuncionamento = 3;
+    bool forcaOferecimento = 4;
+}
+
+message Turno {
+    string sigla = 1;
+    int32 numeroAptos = 2;
+}
